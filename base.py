@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
 from streamlit_echarts import st_echarts
 import numpy as np
 df = pd.read_excel(r'Base Projetos (1).xlsx')
