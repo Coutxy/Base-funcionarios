@@ -4,7 +4,7 @@ from streamlit_echarts import st_echarts
 import numpy as np
 df = pd.read_excel(r'Base Projetos (1).xlsx')
 st.set_page_config(page_title='Base projeto', layout='wide')
-st.title('Base Projetos!')
+st.title('Base Projetos')
 st.sidebar.write('Analisando o Arquivo Base Projetos (1).xlsx')
 stt = df.groupby('Setor')['Status'].value_counts()
 responsavel = df.groupby('Setor')['Responsável'].value_counts().sort_values(ascending=False)
@@ -60,7 +60,7 @@ with aba1:
     status = df['Status'].value_counts().sort_index()
     stti = status.index.tolist()
     sttv = status.values.tolist()
-    st.header('Status:')
+    st.header('Status dos Projetos:')
     options1 = {
     "xAxis": {
         "type": "category",
@@ -83,7 +83,7 @@ with aba1:
     }
     st_echarts(options=options1, key="grafico_status_geral")
     st.divider()
-    st.title('FInaceiro')
+    st.title('Financeiro')
     orcamento = int(df['Valor Orçado'].sum())
     valor_neg = int(df['Valor Negociado'].sum())
     options2 = {
@@ -159,7 +159,8 @@ with aba2:
             }
         ]
     }
-    st_echarts(options=options4, key="grafico_TI_status")
+    st_echarts(options=options4, height="400px", key="grafico_TI_status")
+
 
     st.header('Responsaveis:')
     col1, col2 = st.columns([2,1])
@@ -197,7 +198,7 @@ with aba2:
             }
         ]
     }
-        st_echarts(options=optionsti, key="grafico_TI_responsaveis")
+        st_echarts(options=optionsti, height="400px", key="grafico_TI_responsaveis")
     with col2:
         st.write('')
         st.write('')
@@ -227,8 +228,9 @@ with aba3:
             }
         ]
     }
-    
-    st_echarts(options=optionsm1, key="grafico_Marketing_status")
+    st_echarts(options=optionsm1, height="400px", key="grafico_Marketing_status")
+
+
     st.header('Responsaveis:')
     col3, col4 = st.columns([2,1])
     with col3:
@@ -265,7 +267,7 @@ with aba3:
             }
         ]
     }
-        st_echarts(options=optionsM, key="grafico_Markenting_responsaveis")
+        st_echarts(options=optionsM, height="400px", key="grafico_Markenting_responsaveis")
     with col4:
         st.write('')
         st.write('')
@@ -295,7 +297,8 @@ with aba4:
             }
         ]
     }
-    st_echarts(options=optionsC1, key="grafico_Comercial_status")
+    st_echarts(options=optionsC1, height="400px", key="grafico_Comercial_status")
+
 
     st.header('Responsaveis:')
     col5, col6 = st.columns([2,1])
@@ -333,7 +336,7 @@ with aba4:
             }
         ]
     }
-        st_echarts(options=optionsC, key="grafico_Comercial_responsaveis")
+        st_echarts(options=optionsC, height="400px", key="grafico_Comercial_responsaveis")
     with col6:
         st.write('')
         st.write('')
@@ -363,7 +366,7 @@ with aba5:
             }
         ]
     }
-    st_echarts(options=optionsF1, key="grafico_Financeiro_status")
+    st_echarts(options=optionsF1, height="400px", key="grafico_Financeiro_status")
 
     st.header('Responsaveis:')
     col7, col8 = st.columns([2,1])
@@ -401,7 +404,7 @@ with aba5:
             }
         ]
     }
-        st_echarts(options=optionsF, key="grafico_Finceiro_responsaveis")
+        st_echarts(options=optionsF, height="400px", key="grafico_Finceiro_responsaveis")
     with col8:
         st.write('')
         st.write('')
@@ -431,7 +434,7 @@ with aba6:
             }
         ]
     }
-    st_echarts(options=optionsL1, key="grafico_Logística_status")
+    st_echarts(options=optionsL1, height="400px", key="grafico_Logística_status")
 
     st.header('Responsaveis:')
     col9, col10 = st.columns([2,1])
@@ -469,7 +472,7 @@ with aba6:
             }
         ]
     }
-        st_echarts(options=optionsL, key="grafico_Logística_responsaveis")
+        st_echarts(options=optionsL, height="400px", key="grafico_Logística_responsaveis")
     with col10:
         st.write('')
         st.write('')
@@ -498,7 +501,7 @@ with aba7:
             }
         ]
     }
-    st_echarts(options=optionsCo1, key="grafico_Compras_status")
+    st_echarts(options=optionsCo1, height="400px", key="grafico_Compras_status")
 
     st.header('Responsaveis:')
     col11, col12 = st.columns([2,1])
@@ -536,7 +539,7 @@ with aba7:
             }
         ]
     }
-        st_echarts(options=optionsCo, key="grafico_Compras_responsaveis")
+        st_echarts(options=optionsCo, height="400px", key="grafico_Compras_responsaveis")
     with col12:
         st.write('')
         st.write('')
@@ -567,7 +570,7 @@ with aba8:
             }
         ]
     }
-    st_echarts(options=optionsP1, key="grafico_Produção_status")
+    st_echarts(options=optionsP1, height="400px", key="grafico_Produção_status")
 
     st.header('Responsaveis:')
     col13, col14 = st.columns([2,1])
@@ -605,7 +608,7 @@ with aba8:
             }
         ]
     }
-        st_echarts(options=optionsP, key="grafico_Produção_responsaveis")
+        st_echarts(options=optionsP, height="400px", key="grafico_Produção_responsaveis")
     with col14:
         st.write('')
         st.write('')
@@ -638,7 +641,8 @@ with aba9:
     }
     st_echarts(options=optionsR1, key="grafico_RH_status")
 
-    st.header('Responsaveis:')
+    
+    st.header('Responsaveis:') 
     col15, col16 = st.columns([2,1])
     with col15:
         responsal_R = responsavel['RH']
@@ -674,7 +678,7 @@ with aba9:
             }
         ]
     }
-        st_echarts(options=optionsR, key="grafico_RH_responsaveis")
+        st_echarts(options=optionsR, height="400px", key="grafico_RH_responsaveis") 
     with col16:
         st.write('')
         st.write('')
